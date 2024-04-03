@@ -1,0 +1,83 @@
+---
+title: 'Data For Online Quiz #1'
+output: pdf_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The following document will help you answer questions 6-10 of the online quiz. It will test your ability to use statistical terminology to describe the data presented.
+I will read in some data and then we can look at some plots together.
+
+The questions on the online quiz will remain as multiple choice.
+\newpage
+## Question 6
+
+We will start by examining a grouped frequency distribution of *Anolis* lizards and their forelimb lengths.
+
+View the histogram of *Anolis* forelimb lengths for Q6. What shaped frequency distribution does this data most closely adhere to?
+
+```{r Question 6, echo=FALSE}
+AnolisData <- read.csv("/Users/aconith/Library/CloudStorage/OneDrive-DePaulUniversity/DePaul/Teaching/2024SQ/Conith/GitHub/BIO206_BIOSTATS/Quiz_1/AnolisDataQuiz.csv")
+
+hist(AnolisData$ForeLimbLength, breaks = 5, xlab = "Forelimb Length (cm)", ylab = "Frequency", main = expression('Q6, Histogram of '*italic(Anolis)*' Forelimb Lengths'))
+
+```
+\newpage
+## Question 7
+
+We will now look over distribution of digit lengths in our sample.
+
+The histogram shows the distribution is skewed. In what direction is the data skewed?
+
+```{r Question 7, echo=FALSE}
+AnolisData <- read.csv("/Users/aconith/Library/CloudStorage/OneDrive-DePaulUniversity/DePaul/Teaching/2024SQ/Conith/GitHub/BIO206_BIOSTATS/Quiz_1/AnolisDataQuiz.csv")
+
+hist(AnolisData$Digit5Length, breaks = 8, xlab = "Digit 5 Length (cm)", ylab = "Frequency", main = expression('Q7, Histogram of '*italic(Anolis)*' Digit 5 Lengths'))
+
+```
+\newpage
+## Question 8 and question 9
+
+We will now look over distribution of limb and tail lengths in our sample.
+
+Describe the type of correlation (or lack thereof), and for question 9 mention which measure is the independent variable and dependent variable for plot 8a.
+
+```{r Question 8, echo=FALSE}
+AnolisData <- read.csv("/Users/aconith/Library/CloudStorage/OneDrive-DePaulUniversity/DePaul/Teaching/2024SQ/Conith/GitHub/BIO206_BIOSTATS/Quiz_1/AnolisDataQuiz.csv")
+par(mfrow=c(1,2), pty='s')
+plot(AnolisData$BodyLength,AnolisData$ForeLimbLength, pch=19, cex.main=0.8, main = expression('Q8a, '*italic(Anolis)*' body length by forelimb length'), xlab="Body length (cm)", ylab="Forelimb Length (cm)", xlim = c(0,40),cex=0.6)
+plot(AnolisData$BodyLength,AnolisData$TailLength, pch=19, cex.main=0.8, main = expression('Q8b, '*italic(Anolis)*' body length by tail length'), xlab="Body length (cm)", ylab="Tail Length (cm)", xlim = c(0,40),cex=0.6)
+
+par(mfrow=c(1,1), pty='s')
+
+```
+\newpage
+## Question 10
+
+We will now look over a line plot.
+
+On your online quiz list what the data type is for each variable (*i.e.*, continuous, discrete, categorical).
+
+```{r Question 10, echo=FALSE}
+AnolisData <- read.csv("/Users/aconith/Library/CloudStorage/OneDrive-DePaulUniversity/DePaul/Teaching/2024SQ/Conith/GitHub/BIO206_BIOSTATS/Quiz_1/AnolisDataQuiz.csv")
+
+suppressWarnings(suppressMessages(library(ggplot2)))
+
+x <- 1:17
+y <- 5*exp(0.1*x)
+Z<-cbind.data.frame(x,y)
+
+ggplot(data=Z,aes(x=x,y=y))+
+       geom_line() +
+  theme_bw() +
+  xlab("Embryonic Stage") +
+  ylab("Body Length (cm)") +
+  ggtitle("Q10, Body length through 17 stages") +
+  theme(aspect.ratio=1,  plot.title = element_text(size = 10))
+
+
+```
+
