@@ -59,18 +59,18 @@ par(mfrow=c(1,1), pty='s')
 
 We will now look over a line plot.
 
-On your online quiz list what the data type is for each variable (*i.e.*, continuous, discrete, categorical).
+On your online quiz list what the data type is for each variable (*i.e.*, continuous, discrete, categorical). I have included a readout of the raw data used to make this plot as it may be helpful to answer question 10.
 
 ```{r Question 10, echo=FALSE}
 AnolisData <- read.csv("/Users/aconith/Library/CloudStorage/OneDrive-DePaulUniversity/DePaul/Teaching/2024SQ/Conith/GitHub/BIO206_BIOSTATS/Quiz_1/AnolisDataQuiz.csv")
 
 suppressWarnings(suppressMessages(library(ggplot2)))
 
-x <- 1:17
-y <- 5*exp(0.1*x)
-Z<-cbind.data.frame(x,y)
-
-ggplot(data=Z,aes(x=x,y=y))+
+Stage <- 1:17
+BodyLength <- 5*exp(0.1*Stage)
+Z<-cbind.data.frame(Stage,BodyLength)
+print(Z, row.names = FALSE)
+ggplot(data=Z,aes(x=Stage,y=BodyLength))+
        geom_line() +
   theme_bw() +
   xlab("Embryonic Stage") +
