@@ -121,6 +121,22 @@ The 'apply' function allows us to apply a function across a series of rows or co
 The aggregate function is immensely useful, allowing you to calculate group means or medians (or any function) across a suite of data. Here, we want to calculate body mass and body height means/medians for each sex independently.
 
 ###
+
+Plotting
+
+Finally, let's produce a boxplot so we can visualize our body size data.
+
+We need to add some extra arguments so we can label the axes and title the plot. I chose to plot the body mass data, but you could also try the height data as well to see how that changes.
+
+```{r Boxplot}
+
+boxplot(BodyData$BodyMass~BodyData$Sex,
+        xlab = "Sex", ylab = "Body Mass",
+          main = "Boxplot of body mass for males and females")
+
+```
+
+###
 RESOURCES TO LEARN R.
 
 R has a whole host of different packages that do not come with the base installation. Some of them we will be using during this class. One of my favorites is called Swirl. Swirl is a package that allows you to learn R, in R. It types prompts to you in the console and you can answer the questions it gives you. It is an immensely useful tool to aid in learning the ins-and-outs of the R programming language. To install, follow the code chunk. Note that I have added a pound symbol, or hash tag, as it allows you to add comments to a line of code so you can remember what a specific line does. They are very useful to describe what you're doing in a team setting where you are likely to share code.
@@ -136,14 +152,18 @@ R has a whole host of different packages that do not come with the base installa
 
 TASK.
 
-I want you to find the mean and median from a sample population of two closely related primate species: bonobos and chimpanzees. The data here is measurement data of the skull length and skull height. I want you to construct a data frame that includes the data below and obtain species means and medians.
+I want you to find the mean and median from a sample population of two closely related primate species: bonobos and chimpanzees. The data here is measurement data of the skull length and skull height separated by sex.
 
-Chimp skull height (cm) -  25, 35, 53, 47, 41, 61.
-
-Chimp skull length (cm) -  45, 48, 55, 51, 49, 66.
-
-Bonobo skull height (cm) -  34, 33, 59, 45, 64, 72.
-
-Bonobo skull length (cm) -  43, 49, 50, 48, 54, 61.
+I want you to construct a data frame that includes the data below and obtain species means and medians. Then find the mean and median for each of the four groups (species*sex).
 
 
+Chimp skull height F (cm) -  25, 35, 53, 47, 41, 61.
+
+Chimp skull length M (cm) -  45, 48, 55, 51, 49, 66.
+
+Bonobo skull height F (cm) -  34, 33, 59, 45, 64, 72.
+
+Bonobo skull length M (cm) -  43, 49, 50, 48, 54, 61.
+
+
+Plot a boxplot with species and skull length. Finally, plot a boxplot with all four groups.
